@@ -1,0 +1,11 @@
+GITHUB PAGES 发布步骤
+
+1. 解压整个 ZIP。
+2. 在 GitHub 新建一个仓库，例如 wonder-quest-ultimate。
+3. 上传 index.html、assets 文件夹、README.md 与 .nojekyll 到仓库根目录；不要只上传 ZIP。
+4. 打开 Settings → Pages。
+5. Build and deployment 选择 Deploy from a branch。
+6. Branch 选 main，Folder 选 /(root)，点击 Save。
+7. 部署完成后，在 Pages 页面打开生成的网址。
+
+网页在线访问需要网络；本项目所有图片与代码都随包保存，不会在游戏过程中从外部网站加载素材。要在断网教室使用，请从 USB 解压整个项目并用 Chrome 或 Edge 打开 index.html。
