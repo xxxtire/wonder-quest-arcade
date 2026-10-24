@@ -1,5 +1,4 @@
-Wonder Quest Ultimate Arcade
-Version: 3.1 (optimized WebP assets)
-Built: 2026-10-23
-Contains: 20 mini-games, 6 scene artworks, 10 image gallery artworks
-Image format: WebP high-quality, suitable for GitHub Pages and current Chrome/Edge browsers.
+Wonder Quest Party Arcade v5.0
+32 touch-first mini-games
+Complete multi-file project for GitHub Pages and offline USB use
+No external dependencies

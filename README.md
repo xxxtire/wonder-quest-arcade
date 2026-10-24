@@ -1,46 +1,42 @@
-# Wonder Quest Ultimate Arcade · 奇妙世界大冒险终极版
+# Wonder Quest Party Arcade v5.0
 
-一个为小学低年级触屏大屏幕设计的离线优先互动游戏网站，适合投影/电视触屏和 Chrome / Edge 浏览器。
+A touch-first arcade pack designed for a large classroom display and small-group rotation. This is a complete multi-file project, not a standalone HTML mock-up.
 
-## 本版本包含
+## Included
 
-- **20 种可玩的互动活动**：宝藏冲刺、丛林救援、太空防卫战、海洋清洁、记忆配对、快速点击、数学冲刺、颜色反应、动物栖息地、英文单词、迷宫、数字拼图、记忆序列、环保分类、找不同、图形规律、节奏回声、火箭倒数、故事选择与绘画画室。
-- **10 张大型世界概念图**：放在 `assets/gallery/`，点击即可放大查看，作为世界地图画廊。
-- **6 张场景艺术图**：用于游戏背景与视觉场景，位于 `assets/scenes/`。
-- 中文 + Bahasa Melayu + Grade 3 英文提示，触屏按钮、全屏、浏览器合成音效、完成动画、重玩和回到游戏大厅。
-- 不需要登录、外部字体、CDN、外部 API 或运行时互联网素材请求。
-- 不含排行榜，适合全班合作与轮流操作。
+- `index.html` — application shell and navigation
+- `css/style.css` — responsive arcade UI, cards, overlays and game layout
+- `js/data.js` — 30 game descriptions, instructions, categories and scene mapping
+- `js/games.js` — self-contained touch/pointer game engine and gameplay logic
+- `js/app.js` — game catalogue, team scores, party mode, controls and sound
+- `assets/scenes/` — six bundled scene images
+- `assets/gallery/` — ten bundled world-art images
+- `assets/audio/` — locally bundled sound effects and an original synthesized arcade loop in OGG format
+- `.nojekyll`, `VERSION.txt`, `HOW_TO_PUBLISH_GITHUB_PAGES.txt`
 
-## 本地试玩 / USB 离线运行
+## Play offline from USB
 
-1. 下载项目 ZIP 并完整解压。
-2. 保持 `index.html` 与 `assets/` 文件夹相对路径不变。
-3. 双击 `index.html`，使用 Chrome 或 Edge 打开。
-4. 先点「全部小游戏」测试操作；按右上角全屏即可用于大屏幕。
+1. Extract the entire ZIP into one folder on the computer or USB drive.
+2. Keep the folder structure unchanged: `index.html`, `css/`, `js/`, and `assets/` must sit side by side.
+3. Open `index.html` in current Chrome or Edge.
+4. Tap **Start Party** or choose any game card. Enter full screen for the classroom display.
 
-**不要只复制 `index.html`：** 场景图片与世界画廊图片必须连同 `assets/` 一起保留。
+The games do not call external sites or load remote libraries. First-time audio playback may need one touch/click because browsers block autoplay until the user interacts.
 
-## 发布至 GitHub Pages
+## Publish to GitHub Pages
 
-1. 在 GitHub 新建 Public 或 Private 仓库，例如 `wonder-quest-ultimate`。
-2. 解压 ZIP，把 `index.html`、`assets/`、`.nojekyll`、README 和说明文件上传至仓库根目录（不要只上传 ZIP）。
-3. 进入 **Settings → Pages**。
-4. 在 **Build and deployment** 选择 **Deploy from a branch**，Branch 选 `main`，Folder 选 `/(root)`，保存。
-5. 等 GitHub Pages 部署完成后，在该页面打开实际网址。
+1. Extract this ZIP.
+2. Upload the *contents* of this folder into the root of the `wonder-quest-arcade` repository (not the folder itself and not the ZIP alone).
+3. Ensure `index.html` appears at the repository root beside `css/`, `js/`, and `assets/`.
+4. In **Settings → Pages**, choose **Deploy from a branch → main → /(root)**.
+5. Visit `https://xxxtire.github.io/wonder-quest-arcade/` after deployment.
 
-GitHub Pages 的在线网址需要互联网访问；程序素材不从外部网站加载。课堂断网时可直接从 USB 本地运行整个解压文件夹。
+## Game list (32)
 
-## 课程与操作建议
+Meteor Mayhem, Bubble Pop Frenzy, Fruit Frenzy, Brick Breaker, Space Shooter, Monster Whack, Stack Tower, Star Catcher, Laser Reflex, Candy Match Party, Ball Sort Party, Parking Escape, Maze Runner, Memory Flip, Simon Says, Cannon Carnival, Puck Slam, Penalty Shootout, Balloon Burst, Dino Hop Run, Dodge the Fall, Fishing Frenzy, Bubble Shooter, Paper Plane, Treasure Dig, Color Flood, Frog Hop Tactics, Rhythm Tap, Boss Rush, Pinball Party, Traffic Panic and Paint Splash.
 
-- 建议先由老师介绍任务，再让孩子轮流触屏。
-- 需要小组合作时，可由一名孩子观察、一名孩子选择、一名孩子解释答案，然后交换角色。
-- 没有时间排名机制；不同活动各自完成自己的目标。
+## Notes
 
-## 素材说明
-
-所有场景图与世界地图图像均为本项目配套视觉素材；`assets/gallery/` 中的概念地图是可浏览的艺术画廊图像，非游戏内实时 3D 场景或实拍视频。
-
-## 本版优化
-
-- 场景和画廊素材已转换为高质量 WebP，以减小 GitHub 上传体积并缩短加载时间。
-- 所有游戏仍使用本地项目资源，不加载外部 CDN 或远程素材。
+- Team scores and personal bests are saved in the local browser profile. They are not synced across different computers.
+- This pack uses custom JavaScript gameplay and bundled game art; it is not a real-time 3D engine.
+- All generated/synthesized arcade sounds are shipped locally as OGG files; no network is needed during play.

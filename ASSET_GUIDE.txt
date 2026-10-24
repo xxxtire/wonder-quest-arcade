@@ -1,0 +1,12 @@
+ASSET GUIDE
+
+assets/scenes/   Six wide world-scene images used behind active games
+assets/gallery/  Ten world-art images used by cards and visual panels
+assets/audio/    Local OGG sound effects and a short synthesized arcade music loop
+css/style.css    Visual layout and responsive touch UI
+js/data.js       Game card labels, categories, instructions, scene mapping
+js/games.js      Canvas renderer, touch input and individual game rules
+js/app.js        Catalogue, team score persistence, party mode, sound and navigation
+index.html       Website entry point (must stay at project root)
+
+Keep the folder tree intact. Do not upload only index.html by itself.

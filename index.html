@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="theme-color" content="#071228">
+  <meta name="description" content="Wonder Quest Party Arcade — 30 playful touch-screen mini-games, fully packaged for GitHub Pages and offline USB play.">
+  <title>Wonder Quest · Party Arcade v5</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <button class="brand" id="homeBrand" aria-label="主页">
+      <span class="brand-mark">WQ</span><span class="brand-name"><b>WONDER QUEST</b><small>PARTY ARCADE · 奇妙游戏派对</small></span>
+    </button>
+    <div class="top-actions">
+      <label class="team-picker">当前小组 <select id="teamSelect" aria-label="选择小组"><option value="0">🔴 红队</option><option value="1">🔵 蓝队</option><option value="2">🟢 绿队</option><option value="3">🟡 黄队</option></select></label>
+      <button class="icon-button" id="soundToggle" aria-label="音效开关">🔊 <span>音效</span></button>
+      <button class="icon-button" id="fullToggle" aria-label="全屏">⛶ <span>全屏</span></button>
+    </div>
+  </header>
+
+  <main id="homeScreen" class="screen home-screen">
+    <div class="hero" id="hero">
+      <div class="hero-backdrop"></div><div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> 32 GAMES · ONE BIG PARTY</div>
+        <h1>只管玩，<span>尽情闯关！</span></h1>
+        <p>动作、反应、躲避、弹射、消除、迷宫、节奏和 Boss 挑战——每一局都有新变化。</p>
+        <div class="hero-cta"><button id="partyStart" class="primary-cta">🎲 开始派对赛 <span>START PARTY</span></button><button id="randomStart" class="secondary-cta">✨ 随机开玩</button></div>
+        <div class="hero-stats"><div><b>30</b><span>款小游戏</span></div><i></i><div><b>4</b><span>个小组</span></div><i></i><div><b>0</b><span>无聊环节</span></div></div>
+      </div>
+      <div class="hero-art" aria-hidden="true"><div class="hero-scene"></div><div class="float-chip chip-gem">💎 BONUS!</div><div class="float-chip chip-star">⭐ COMBO ×3</div><div class="hero-mascot">🦊</div><div class="hero-ring"></div></div>
+      <div class="hero-bottom"><span>👆 只需要触屏</span><span>🔌 完整离线素材</span><span>🎉 轮流挑战 · 全班同乐</span></div>
+    </div>
+
+    <section class="team-strip">
+      <div class="team-strip-head"><div><div class="section-kicker">PARTY SCOREBOARD</div><h2>小组欢乐榜 <small>不是淘汰赛，大家都能拿奖励</small></h2></div><button id="resetScores" class="quiet-button">↻ 清空本机分数</button></div>
+      <div class="team-score-grid" id="teamScores"></div>
+    </section>
+
+    <section class="arcade-section" id="arcadeSection">
+      <div class="section-heading"><div><div class="section-kicker">PICK YOUR CHAOS</div><h2>今天想玩哪一种？</h2><p>每款游戏的操作不一样；点卡片就能直接开玩。</p></div><div class="catalog-count"><b id="catalogCount">32</b><span>PLAYABLE GAMES</span></div></div>
+      <div class="catalog-tools"><label class="search-wrap"><span>⌕</span><input id="gameSearch" type="search" placeholder="找游戏：泡泡、赛车、迷宫……" autocomplete="off"></label><div id="categoryFilters" class="filter-list"></div></div>
+      <div id="gameGrid" class="game-grid"></div>
+    </section>
+    <footer class="page-footer"><b>WONDER QUEST PARTY ARCADE</b><span>本地保存小组星星 · No login · No ads · Offline-ready</span><button id="rulesButton" class="quiet-button">怎么玩？</button></footer>
+  </main>
+
+  <main id="gameScreen" class="screen game-screen hidden">
+    <div class="game-header">
+      <button id="backHome" class="game-back">← <span>游戏大厅</span></button>
+      <div class="game-name-wrap"><div id="gameCategory" class="game-kicker">ARCADE</div><h2 id="gameName">泡泡爆破</h2><p id="gameBlurb">快速点破泡泡，别碰炸弹！</p></div>
+      <div class="game-stats"><div><small>得分</small><b id="hudScore">0</b></div><div><small>连击</small><b id="hudCombo">×0</b></div><div><small>时间</small><b id="hudTime">45</b></div><div><small>小组</small><b id="hudTeam">红队</b></div></div>
+      <div class="game-tools"><button id="pauseButton" class="round-tool" aria-label="暂停">Ⅱ</button><button id="restartButton" class="round-tool" aria-label="重新开始">↻</button></div>
+    </div>
+    <div class="playfield-wrap"><canvas id="gameCanvas" aria-label="游戏画面"></canvas><div class="canvas-overlay" id="canvasOverlay"><div class="overlay-card"><div id="overlayIcon" class="overlay-icon">🎮</div><div class="overlay-kicker" id="overlayKicker">READY?</div><h2 id="overlayTitle">准备开玩！</h2><p id="overlayText">触碰屏幕开始游戏。</p><button id="overlayAction" class="primary-cta">开始！ <span>LET'S GO</span></button><button id="overlayAlt" class="secondary-cta overlay-alt">返回大厅</button></div></div><div class="touch-hint" id="touchHint">👆 触屏操作</div></div>
+    <div class="game-footer"><div class="progress-track"><span id="timeBar"></span></div><div class="footer-info"><span id="instructionText">触碰泡泡来得分，炸弹要避开！</span><span id="roundText">ROUND 1</span><span id="highScoreText">最高分 0</span></div></div>
+  </main>
+
+  <div id="toast" class="toast hidden" role="status"></div>
+  <div id="rulesModal" class="modal hidden" role="dialog" aria-modal="true"><div class="modal-card"><button class="modal-close" data-close-modal>×</button><div class="section-kicker">HOW TO PLAY</div><h2>纯玩派对 · 游戏规则</h2><div class="rules-content"><p>👥 <b>小组轮流：</b>顶部选择红、蓝、绿或黄队，每轮选一款游戏。结束后会把星星记到当前小组。</p><p>👆 <b>触屏优先：</b>大多数游戏直接点击、拖动或滑动；部分游戏需要在画面上拖拽瞄准。</p><p>✨ <b>连击奖励：</b>连续命中可获得更高连击；随机加成会突然出现。</p><p>🔌 <b>离线运行：</b>本项目包含网页程序、图片与音效。解压整个项目文件夹后打开 `index.html` 即可试玩；放到 GitHub Pages 也能在线玩。</p></div><button class="primary-cta" data-close-modal>懂了，开玩！ <span>LET'S PLAY</span></button></div></div>
+</div>
+<script src="js/data.js"></script>
+<script src="js/games.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
